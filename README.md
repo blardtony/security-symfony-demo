@@ -1,1 +1,1 @@
-# security-symfony-demo
+# Security Symfony demo
