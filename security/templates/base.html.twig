@@ -9,7 +9,12 @@
         {% block stylesheets %}
             {{ encore_entry_link_tags('app') }}
         {% endblock %}
-
+        <style>
+            body {
+                min-height: 75rem;
+                padding-top: 4.5rem;
+            }
+        </style>
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
@@ -24,11 +29,11 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarCollapse">
                         <ul class="navbar-nav me-auto mb-2 mb-md-0">
-{#                            {% if is_granted('ROLE_ADMIN') %}#}
+                            {% if app.user.roles is defined and 'ROLE_ADMIN' in app.user.roles %}
                                 <li class="nav-item">
                                     <a class="nav-link active" aria-current="page" href="{{ path('admin_dashboard') }}">Dashboard</a>
                                 </li>
-{#                            {% endif %}#}
+                            {% endif %}
                         </ul>
                     </div>
                 </div>
